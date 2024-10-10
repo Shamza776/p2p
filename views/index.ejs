@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Chart</title>
+    <!-- <link rel="stylesheet" href="/public/js/css/style.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #1e90ff;
+}
+
+/* Stock Chart */
+canvas {
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid #dcdcdc;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #333;
+    border-radius: 20px;
+}
+
+thead th {
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 8px 12px;
+    margin-right: 5px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #4682b4;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nairobi Stock Exchange Prices</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Stock Prices Chart</h2>
+            <canvas id="stockChart" width="50" height="20"></canvas>
+        </section>
+
+        <section>
+            <h2>Selected Stocks</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stock</th>
+                        <th>Price (Ksh)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% filteredStocks.forEach(stock => { %>
+                        <tr>
+                            <td><%= stock.name %></td>
+                            <td><%= stock.price %></td>
+                            <td>
+                                <button onclick="buyStock('<%= stock.name %>')">Buy</button>
+                                <button onclick="sellStock('<%= stock.name %>')">Sell</button>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script>
+        const chartData = <%- chartData %>; 
+
+        var stockChart = new Chart(
+            document.getElementById('stockChart'),
+            {
+                type: 'line',
+                data: chartData,
+                options: {}
+            }
+        );
+
+        function buyStock(stockName) {
+            alert('Buying ' + stockName);
+        }
+
+        function sellStock(stockName) {
+            alert('Selling ' + stockName);
+        }
+    </script>
+</body>
+</html>

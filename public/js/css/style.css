@@ -1,0 +1,72 @@
+/* Styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Main content */
+main {
+    padding: 20px;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #1e90ff;
+}
+
+/* Stock Chart */
+canvas {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    padding: 20px;
+}
+
+/* Stock Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead th {
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 8px 12px;
+    margin-right: 5px;
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #4682b4;
+}
